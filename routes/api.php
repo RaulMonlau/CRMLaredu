@@ -19,7 +19,28 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout']); // Logout
     Route::get('/me', [AuthController::class, 'me']); // Obtener datosdel usuario autenticado
 });
+Route::middleware('auth:sanctum')->group(function () {
+    // Endpoint para obtener todos los cursos del usuario autenticado
+    Route::get('/courses', [CourseController::class, 'index']);
+    // Endpoint para asignar un curso al usuario autenticado
+    Route::post('/courses', [CourseController::class, 'store']);
+    // Endpoint para obtener un curso específico (por ID) asignado al usuario autenticado
+    Route::get('/courses/{id}', [CourseController::class, 'show']);    // Endpoint para desasignar un curso por ID
+    Route::delete('/courses/{id}', [CourseController::class, 'destroy']);
+    Route::put('/courses/{id}', [CourseController::class, 'update']);
+});
 
+Route::middleware('auth:sanctum')->group(function () {
+    // Endpoint para obtener todos los cursos del usuario autenticado
+    Route::get('/subjects', [SubjectController::class, 'index']);
+    // Endpoint para asignar un curso al usuario autenticado
+    Route::post('/subjects', [SubjectController::class, 'store']);
+    // Endpoint para obtener un curso específico (por ID) asignado al usuario autenticado
+    Route::get('/subjects/{id}', [SubjectController::class, 'show']);    // Endpoint para desasignar un curso por ID
+    Route::put('/subjects/{id}', [SubjectController::class, 'update']);
+    Route::delete('/subjects/{id}', [SubjectController::class, 'destroy']);
+    
+});
 Route::middleware('auth:sanctum')->group(function () {
     // CRUD de assignments
     Route::get('/assignments', [AssignmentController::class, 'index']);
@@ -57,5 +78,5 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/roles', [RoleController::class, 'index']);
     Route::post('/roles', [RoleController::class, 'store']);
     Route::post('/users/{userId}/assign-role', [RoleController::class, 'assignRole']);
-    Route::post('/users/{userId}/remove-role', [RoleController::class, 'removeRole']);
+    Route::delete('/users/{userId}/remove-role', [RoleController::class, 'removeRole']);
 });

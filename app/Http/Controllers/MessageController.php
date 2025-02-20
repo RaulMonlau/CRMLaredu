@@ -9,7 +9,7 @@ class MessageController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         $userId = $request->user()->id;
         $messages = Message::where('receiver_id', $userId)

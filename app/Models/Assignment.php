@@ -15,7 +15,7 @@ class Assignment extends Model
         'title',        // Título de la asignación
         'description',  // Descripción detallada
         'due_date',     // Fecha límite
-        'is_completed', // Estado de completación
+        'subject_id', // Estado de completación
     ];
 
     // Cast de atributos

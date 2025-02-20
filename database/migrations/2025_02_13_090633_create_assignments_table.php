@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('assignments', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->text('description');
             $table->dateTime('due_date');
             $table->foreignId('subject_id')->constrained()->onDelete('cascade');
             $table->timestamps();
