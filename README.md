@@ -26,7 +26,7 @@ Plataforma escolar con **Laravel 11** (backend) y **React 19** (frontend).
    php artisan migrate --seed
    php artisan serve
    ```
-4. El backend estará disponible en [http://127.0.0.1:8000](http://127.0.0.1:8000).
+4. El backend estará disponible en [http://127.0.0.1:8000].
 
 ## Archivo SQL
 - El backup de la base de datos se encuentra en `backend/database/laredu.sql`.
@@ -36,10 +36,10 @@ Plataforma escolar con **Laravel 11** (backend) y **React 19** (frontend).
   ```
 
 ## Postman Collection
-- Importa `docs/Laredu.postman_collection.json` en Postman para probar los endpoints.
+- Importa `documentos/laredu.postman_collection.json` en Postman para probar los endpoints, en postman hay una opcion donde pone importar, pon el archivo alli.
 
 ## Licencia
-- MIT (ejemplo)
+- Abierta no comercia
 
 ## Subir el Proyecto a GitHub
 1. Asegúrate de que tu `.gitignore` incluya:
@@ -54,3 +54,5 @@ Plataforma escolar con **Laravel 11** (backend) y **React 19** (frontend).
    git push
    ```
 Al hacer commit, verás la estructura del proyecto en GitHub con las subcarpetas `backend` y `frontend` junto a este `README.md`.
+## token
+Se usa un token para la mayoria de las rutas, el token se consigue en el login, para el postman ponlo en el header Bearer <token>
